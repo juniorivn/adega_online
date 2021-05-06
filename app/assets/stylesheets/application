@@ -10,6 +10,24 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+
+
+ .navbar-brand {
+  width: 300px;
+}
+
+.navbar-brand img {
+  width: 100%;
+}
+
+.navbar-brand.brand2 {
+  width: 50px;
+}
+
+.brand2 img {
+  width: 100%;
+}
