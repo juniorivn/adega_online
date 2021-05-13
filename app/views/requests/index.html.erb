@@ -1,0 +1,24 @@
+<div class="row">
+  <h3>Pedidos</h3>
+  &nbsp
+  <div>
+    <%= link_to "Criar novo pedido", new_request_path, class: "btn btn-success" %>
+    <table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">Lista de Pedidos</th>
+    </tr>
+  </thead>
+  <br><br>
+  <tbody>
+    <% @requests.each do |request| %>
+    <tr>
+      <th scope="row"><%= link_to request.request_number, request_path(id: request.id), class: "btn btn-sm" %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  
+  </div>
+
+</div>

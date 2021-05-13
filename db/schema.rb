@@ -74,8 +74,9 @@ ActiveRecord::Schema.define(version: 2021_05_13_014929) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "request_number"
+    t.string "request_number"
     t.decimal "total"
+    t.integer "form_payment", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

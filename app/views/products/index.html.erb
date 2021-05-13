@@ -4,28 +4,30 @@
   <div>
     <%= link_to "Cadastrar novo produto", new_product_path, class: "btn btn-secondary" %>
     <br><br>
-    <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Código</th>
-      <th scope="col">Logotipo</th>
-      <th scope="col">Nome do Produto</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Quantidade</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-    <tr>
-      <th scope="row"><%= product.id %></th>
-      <td><%= image_tag product.img, size: "40x35" %></td>
-      <td><%= link_to product.name, edit_product_path(id: product.id), class: "btn btn-sm" %></td>
-      <td><%= number_to_currency product.price %></td>
-      <td><%= product.category %></td>
-      <td><%= product.quantity %></td>
-    </tr>
-    <% end %>
-    </tbody>
-    </table>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Logotipo</th>
+            <th scope="col">Nome do Produto</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Quantidade</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <th scope="row"><%= product.id %></th>
+            <td><%= image_tag product.img, size: "40x35" %></td>
+            <td><%= link_to product.name, edit_product_path(id: product.id), class: "btn btn-sm" %></td>
+            <td><%= number_to_currency product.price %></td>
+            <td><%= product.category %></td>
+            <td><%= product.quantity %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
 </div>
