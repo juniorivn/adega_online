@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_045435) do
+ActiveRecord::Schema.define(version: 2021_05_13_014929) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,25 @@ ActiveRecord::Schema.define(version: 2021_05_06_045435) do
     t.decimal "price"
   end
 
+  create_table "request_products", force: :cascade do |t|
+    t.integer "requests_id", null: false
+    t.integer "products_id", null: false
+    t.integer "product_quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["products_id"], name: "index_request_products_on_products_id"
+    t.index ["requests_id"], name: "index_request_products_on_requests_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "request_number"
+    t.decimal "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "request_products", "products", column: "products_id"
+  add_foreign_key "request_products", "requests", column: "requests_id"
 end
